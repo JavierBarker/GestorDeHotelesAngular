@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+
+<h2 class="w-full flex justify-center text-black text-4xl my-3 p-1">Hoteles más Solicitados</h2>
+<div *ngFor="let hotels of gethotels; let i = index" class="w-full h-1/2 flex justify-center mb-5">
+    <figure class="md:flex bg-gray-200 rounded-xl p-8 md:p-0 w-11/12 mx-auto shadow-2xl">
+
+        <img *ngIf="hotels.image === 'null'" src="../../../assets/img/hotel.jpg"
+            class="md:w-6/12 lg:w-4/12 w-32 h-32  md:w-48 md:h-96 md:rounded-l-xl md:rounded-r-none rounded-full mx-auto md:mx-0">
+        <img *ngIf="hotels.image != 'null'" [src]="hotels.image"
+            class="md:w-6/12 lg:w-4/12 w-32 h-32  md:w-48 md:h-96 md:rounded-l-xl md:rounded-r-none rounded-full mx-auto md:mx-0">
+        <div class="pt-6 md:p-8 text-center md:text-left ">
+            <div class="md:flex grid-cols-2">
+                <blockquote class="">
+                    <p class="text-lg font-semibold ">
+                        Nombre: {{hotels.name}}
+                    </p>
+                    <p class="text-lg font-semibold ">
+                        Direccion: {{hotels.address}}
+                    </p>
+                    <p class="text-lg font-semibold ">
+                        Solicitudes Hechas: {{hotels.requests}}
+                    </p>
+                </blockquote>
+                
+                <blockquote >
+                    <!--Habitaciones-->
+                    <div
+                        class="items-center rounded-lg flex justify-between flex-wrap bg-black py-1 px-0.5 m-1 group focus:outline-none focus:ring-2 border border-gray-900 ">
+                        <h1 class="text-1xl items-center text-white px-1">Habitaciones</h1>
+                        <div class=" text-white self-center">
+                            <button
+                                class="buttonRooms text-black rounded-lg group focus:outline-none focus:ring-2 bg-white border border-black px-2"
+                                (click)="cmbRooms(i)">
+                                \/
+                            </button>
+                        </div>
+
+                        <div
+                            class="menuRooms w-full flex-grow text-center hidden bg-white bg-opacity-25 h-60 overflow-y-auto">
+                            <h2 class="my-2 text-lg text-white">Habitaciones</h2>
+                            <div *ngFor="let rooms of hotels.rooms" class="w-full h-1/2 flex justify-center mb-5">
+                                <figure class="flex  h-auto bg-gray-200 rounded-xl p-0 w-11/12 mx-auto shadow-2xl">
+
+                                    <img *ngIf="rooms.imageRoom === null" src="../../../assets/img/room.png"
+                                        class=" w-28 h-auto rounded-l-xl rounded-r-none mx-0">
+                                    <img *ngIf="rooms.imageRoom" [src]="rooms.imageRoom"
+                                        class=" w-28 h-auto rounded-l-xl rounded-r-none mx-0">
+                                    <div class="pt-1 md:p-2 text-left px-2">
+                                        <blockquote>
+                                            <p class="text-sm font-semibold ">
+                                                Nombre: {{rooms.nameRoom}}
+                                            </p>
+                                            <p class="text-sm font-semibold ">
+                                                Descripcion: {{rooms.descriptionRoom}}
+                                            </p>
+                                            <p class="text-sm font-semibold ">
+                                                Servicios: {{rooms.services}}
+                                            </p>
+                                            <p class="text-sm font-semibold ">
+                                                Costo: Q.{{rooms.cost}}.00
+                                            </p>
+                                        </blockquote>
+
+                                        
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Eventos-->
+                    <div
+                        class="items-center rounded-lg flex justify-between flex-wrap bg-black py-1 px-0.5 m-1 group focus:outline-none focus:ring-2 border border-gray-900 ">
+                        <h1 class="text-1xl items-center text-white px-1">Events</h1>
+                        <div class=" text-white self-center">
+                            <button
+                                class="botonEvents text-black rounded-lg group focus:outline-none focus:ring-2 bg-white border border-black px-2"
+                                (click)="cmbEvents(i)">
+                                \/
+                            </button>
+                        </div>
+
+                        <div
+                            class="menuEvents w-full flex-grow text-center hidden bg-white bg-opacity-25 h-60 overflow-y-auto">
+                            <h2 class="my-2 text-lg">Eventos</h2>
+                            <div *ngFor="let events of hotels.events" class="w-full h-1/2 flex justify-center mb-5">
+                                <figure class="flex  h-auto bg-gray-200 rounded-xl p-0 w-11/12 mx-auto shadow-2xl">
+
+                                    <img *ngIf="events.imageRoom === null" src="../../../assets/img/room.png"
+                                        class=" w-28 h-auto rounded-l-xl rounded-r-none mx-0">
+                                    <img *ngIf="events.imageRoom" [src]="events.imageRoom"
+                                        class=" w-28 h-auto rounded-l-xl rounded-r-none mx-0">
+                                    <div class="pt-1 md:p-2 text-left px-2">
+                                        <blockquote>
+                                            <p class="text-sm font-semibold ">
+                                                Nombre: {{events.nameEvent}}
+                                            </p>
+                                            <p class="text-sm font-semibold ">
+                                                Descripcion: {{events.descriptionEvent}}
+                                            </p>
+                                            <p class="text-sm font-semibold ">
+                                                Tipo Evento: {{events.typeEvent}}
+                                            </p>
+                                        </blockquote>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </figure>
+</div>

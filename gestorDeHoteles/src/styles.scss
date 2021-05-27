@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '~@sweetalert2/theme-dark/dark.scss';
+
+
+
+
+#cuerpo{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: 'Raleway', sans-serif;
+}

@@ -1,0 +1,42 @@
+<nav
+    class="rounded-lg flex justify-between flex-wrap bg-gray-300 py-4 px-8 m-2 group focus:outline-none focus:ring-2 border border-black">
+    <div routerLink="/inicio" class="flex flex-no-shrink text-white self-center bg-gray-100 py-1 px-2 rounded-lg border border-gray-200">
+
+        <img class="h-7 w-7" src="../../../assets/img/iconHotel.png">
+        <h2 class="px-2 text-2xl text-black"> H O T E L I N G </h2>
+    </div>
+
+    <div id="boton" class="text-white lg:hidden self-center items-center">
+        <button
+            class="transition transform ease-in-out duration-700 hover:bg-white rounded-full group focus:outline-none focus:ring-2 bg-black border border-black"
+            (click)="navBar()">
+            <img src="../../../assets/img/desplegarMenu.jpg" class="h-14 w-14 p-2.5 rounded-full">
+        </button>
+    </div>
+
+    <div id="menu"
+        class="w-full flex-grow justify-between text-white lg:flex lg:items-center lg:w-auto text-center hidden">
+        <div class="lg:flex-grow justify-center">
+            <!--Hoteles-->
+            <div >
+                <button routerLink="/hotels" routerLinkActive="active"
+                    class="h-10 mt-5 md:mx-2 lg:mt-0 w-full lg:w-2/6 px-4  px-4 py-2 rounded-lg bg-black border border-black">
+                    <p class="self-center">Hoteles</p>
+                </button>
+                <button *ngIf="_userService.getIdentity().role === 'ROL_ADMIN_APP'" routerLink="/admins" routerLinkActive="active"
+                    class="h-10 mt-5 md:mx-2 lg:mt-0 w-full lg:w-2/6 px-4  px-4 py-2 rounded-lg bg-black border border-black">
+                    <p class="self-center">Admins</p>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="mt-5 lg:mt-0">
+            <button routerLink="/my-account"
+                class="flex justify-center w-full hover:bg-white hover:text-black px-4 py-2 rounded-lg bg-black border border-black">
+                <p class="self-center mr-2">{{_userService.getIdentity().name}}</p>
+                <img src="../../../assets/img/user.jpg" class="h-7 w-7 rounded-full">
+            </button>
+        </div>
+    </div>
+</nav>
