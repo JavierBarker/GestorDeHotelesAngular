@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+<h2 class="w-full flex justify-center text-black text-4xl my-3 p-1">Mis Reservaciones</h2>
+<div class="flex  items-center justify-center mx-5  grid grid-cols-1 md:grid-cols-2">
+    <div *ngFor="let reservations of reservations; let i = index" class="bg-white my-5 rounded-lg shadow-xl w-11/12 md:w-11/12 border border-black">
+        <div class="flex justify-center py-4">
+            <div class="flex bg-white rounded-full md:p-4 p-2 border-2 border-black">
+                <img src="../../../assets/img/room.png" class="w-8 h-8 text-white">
+            </div>
+        </div>
+
+        <div class="flex justify-center">
+            <div class="flex">
+                <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Reservación</h1>
+            </div>
+        </div>
+        <!--Hotel-->
+        <div class="p-2 border border-black mx-7 bg-gray-200 rounded-lg">
+            <h1 class="text-gray-600 font-bold md:text-xl text-xl mx-auto">Hotel</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                <div class="grid grid-cols-1">
+                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"> Nombre</label>
+                    <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                        placeholder="Input 2" name="name" #name="ngModel" [(ngModel)]="reservations.hotelId.name" disabled>
+                </div>
+                <div class="grid grid-cols-1">
+                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Dirección</label>
+                    <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                        placeholder="Input 3" name="address" #address="ngModel" [(ngModel)]="reservations.hotelId.address" disabled>
+                </div>
+            </div>
+        </div>
+        <!--Habitacion-->
+        <div class="p-2 border border-black mx-7 bg-gray-200 rounded-lg mt-5">
+            <h1 class="text-gray-600 font-bold md:text-xl text-xl mx-auto">Habitación</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                <div class="grid grid-cols-1">
+                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"> Fecha de Entrada</label>
+                    <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                        placeholder="Input 2" name="entryDate" #entryDate="ngModel" [(ngModel)]="reservations.room.entryDate" disabled>
+                </div>
+                <div class="grid grid-cols-1">
+                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Fecha de Salida</label>
+                    <input
+                        class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none"
+                        type="text" placeholder="Input 2"  name="exitDate" #exitDate="ngModel" [(ngModel)]="reservations.room.exitDate" disabled>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                <div class="grid grid-cols-1">
+                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"> Nombre Habitación</label>
+                    <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                        placeholder="Input 2" name="name" #name="ngModel" [(ngModel)]="reservations.room.name" disabled>
+                </div>
+                <div class="grid grid-cols-1">
+                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Costo de la Habitación</label>
+                    <input
+                        class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none"
+                        type="text" placeholder="Input 2"  name="cost" #cost="ngModel" [(ngModel)]="reservations.room.cost" disabled>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 my-3">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"> Descripcion de la Habitacion</label>
+                <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                    placeholder="Input 2" name="description" #description="ngModel" [(ngModel)]="reservations.room.description" disabled>
+            </div>
+
+            <div class="grid grid-cols-1 my-3">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"> Servicios de la Habitacion</label>
+                <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                    placeholder="Input 2" name="services" #services="ngModel" [(ngModel)]="reservations.room.services" disabled>
+            </div>
+        </div>
+        
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 my-5 mx-7">
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"> Costo Total</label>
+                <input class="py-2 px-3 rounded-lg border-2 border-black mt-1 focus:outline-none" type="text"
+                    placeholder="Input 2" name="total" #total="ngModel" [(ngModel)]="reservations.total" disabled>
+            </div>
+        </div>
+        <div class="flex">
+            <button
+                class="flex justify-center mx-auto py-2 mb-5 w-1/3 rounded-lg bg-black text-white border border-black hover:text-black hover:bg-white">
+                <p class="self-center"> Cancelar </p>
+            </button>
+        </div>
+        <!--
+        <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+            <button
+                class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
+            <button
+                class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Create</button>
+        </div>
+        -->
+    </div>
+</div>

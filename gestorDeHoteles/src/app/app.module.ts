@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdminsComponent } from './components/admins/admins.component';
 import { HotelsComponent } from './components/hotels/hotels.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MyAccountComponent } from './components/my-account/my-account.component
     RegisterComponent,
     AdminsComponent,
     HotelsComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

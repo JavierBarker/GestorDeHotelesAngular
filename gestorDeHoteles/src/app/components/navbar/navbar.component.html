@@ -27,6 +27,11 @@
                     class="h-10 mt-5 md:mx-2 lg:mt-0 w-full lg:w-2/6 px-4  px-4 py-2 rounded-lg bg-black border border-black">
                     <p class="self-center">Admins</p>
                 </button>
+
+                <button *ngIf="_userService.getIdentity().role === 'ROL_USER'" routerLink="/reservations" routerLinkActive="active"
+                    class="h-10 mt-5 md:mx-2 lg:mt-0 w-full lg:w-2/6 px-4  px-4 py-2 rounded-lg bg-black border border-black">
+                    <p class="self-center">Reservaciones</p>
+                </button>
             </div>
 
         </div>
